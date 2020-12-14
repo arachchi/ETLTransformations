@@ -74,7 +74,7 @@ you chose that transformation and what types of analyses it could be used for?
 
 ***
 
-#Solution
+# Solution
 
 ***
 
@@ -129,11 +129,26 @@ you chose that transformation and what types of analyses it could be used for?
     * Create an integration program to implement the EtlProcessor methods for each transformation
     * Connect to a database using a new DataExporter class.
         
----       
-1.Other Transformations
-    * User Session wise activity summary per time bucket. This can be used to identify user activity flow for each session. The Transformed Data would be as follows.
+---   
+
+## Other Transformations
+
+--- 
+
+User Session wise activity summary per time bucket. This can be used to identify user activity flow for each session. The Transformed Data would be as follows.
     
-    | user_session |time_bucket| url_level1 | url_level2 | activity | activity_count  |
-    | --- | --- |--- | --- | --- | --- | --- |
-    | 564561 | 2017020220 |hipages.com | articles | page_view | 4 | 
-    | 564561 | 2017020220 |hipages.com | connect | button_click | 2 | 
+| Field | Description | 
+| --- | --- |
+| user_session | identifier for the user session |
+| time_bucket | hourly time granularity |
+| url_level1 | first piece of the url (ie. the domain from the url where this action took place) |
+| url_level2 | second level of the url path |
+| activity | activity that took place |
+| activity_count | count of events for the activity |
+
+Example Results:
+
+| User_session |time_bucket| url_level1 | url_level2 | activity | activity_count |
+| --- | --- |--- | --- | --- | --- |
+| 564561 | 2017020220 |hipages.com | articles | page_view | 4 | 
+| 564561 | 2017020220 |hipages.com | connect | button_click | 2 | 
