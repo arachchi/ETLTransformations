@@ -1,0 +1,26 @@
+# set base image
+FROM python:3.7
+
+MAINTAINER Nuran Kasthuriarachchi "nuran.kasthuriarachchi@gmail.com"
+
+# create a folder as app
+WORKDIR /app
+
+# copy the requirements
+COPY requirements.txt . 
+
+# install requirements
+RUN pip install -r requirements.txt
+
+# copy all the required files to the folder
+COPY data_exporter.py .
+COPY data_loader.py .
+COPY data_transformer.py .
+COPY etl_processor.py .
+COPY util.py .
+
+# copy all the tests and assets
+COPY tests/ tests/
+COPY assets/ assets/
+
+
